@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
   const form = formidable({
     uploadDir,
     keepExtensions: true,
-    filename: (name, ext, part, form) => {
+    filename: (name, ext) => {
       return `${Date.now()}_${Math.floor(Math.random() * 10000)}${ext}`;
     },
   });
