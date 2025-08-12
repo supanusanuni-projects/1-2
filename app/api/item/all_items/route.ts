@@ -2,7 +2,7 @@ import { ConnectDB } from "@/app/DB/connect";
 import { selling_ItemDB } from "@/app/DB/Shema/items";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   ConnectDB();
   try {
     const all_items = await selling_ItemDB.find();
