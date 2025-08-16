@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const userItem = await selling_ItemDB.find({ email: user_credentials });
+    const userItem = await selling_ItemDB.find({ user_credentials: user_credentials });
 
     if (!userItem || userItem.length === 0) {
       return NextResponse.json({ message: "Not Found" }, { status: 404 });
