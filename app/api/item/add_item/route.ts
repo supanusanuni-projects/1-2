@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
       ".bmp",
       ".webp",
     ];
-    var fileExtension = path.extname(file.name.toLowerCase());
+    let fileExtension = path.extname(file.name.toLowerCase());
 
     const isValidImage =
       file.type.startsWith("image/") ||
