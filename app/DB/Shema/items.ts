@@ -5,7 +5,7 @@ const selling_Item = new Schema({
     type: String,
     required: true,
   },
-  email: {
+  user_credentials: {
     type: String,
     required: true,
   },
