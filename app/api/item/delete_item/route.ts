@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
   await ConnectDB();
   const { _id } = await req.json();
-  const deleteItem = await selling_ItemDB.deleteOne({ _id: _id });
+  const deleteItem = await selling_ItemDB.findByIdAndDelete({ _id });
   if (!deleteItem) {
     return NextResponse.json(
       {

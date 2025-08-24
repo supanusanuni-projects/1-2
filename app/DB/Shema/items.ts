@@ -21,6 +21,10 @@ const selling_Item = new Schema({
     required: true,
     type: String,
   },
+  tel: {
+    required: true,
+    type: Number,
+  },
 });
 
 export const selling_ItemDB =

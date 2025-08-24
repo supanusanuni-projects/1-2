@@ -27,11 +27,20 @@ export async function POST(req: NextRequest) {
     const tel = formData.get("tel") as string | null;
 
     // Validate required fields
-    if (!file || !title || !description || !price || !email) {
-      return NextResponse.json(
-        { error: "Missing required fields or file" },
-        { status: 400 }
-      );
+    if (!file) {
+      return NextResponse.json({ error: "file" }, { status: 400 });
+    }
+    if (!title) {
+      return NextResponse.json({ error: "t" }, { status: 400 });
+    }
+    if (!description) {
+      return NextResponse.json({ error: "description" }, { status: 400 });
+    }
+    if (!price) {
+      return NextResponse.json({ error: "price" }, { status: 400 });
+    }
+    if (!email) {
+      return NextResponse.json({ error: "email" }, { status: 400 });
     }
 
     // Validate file type - be more flexible with validation
