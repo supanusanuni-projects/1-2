@@ -1,5 +1,6 @@
 import { ConnectDB } from "@/app/DB/connect";
 import { UserDB } from "@/app/DB/Shema/user";
+import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
@@ -13,8 +14,12 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
-    if (user.password === password) {
-      return NextResponse.json({ message: "Login success" ,user}, { status: 200 });
+    const isCorrectPassword = await bcrypt.compare(password, user.password);
+    if (isCorrectPassword) {
+      return NextResponse.json(
+        { message: "Login success", user },
+        { status: 200 }
+      );
     }
 
     return NextResponse.json({ message: "Login failed" }, { status: 401 });
