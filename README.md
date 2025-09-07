@@ -14,15 +14,6 @@ status: 500,
 }
 }
 
-
-
-
-
-
-
-
-
 supanusanuni
-
 
 mongodb+srv://<db_username>:<db_password>@cluster0.hzvut2x.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0

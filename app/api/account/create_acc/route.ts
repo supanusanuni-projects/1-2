@@ -1,6 +1,7 @@
 import { ConnectDB } from "@/app/DB/connect";
 import { UserDB } from "@/app/DB/Shema/user";
 import { NextRequest, NextResponse } from "next/server";
+import bcrypt from "bcryptjs";
 
 export async function POST(req: NextRequest) {
   await ConnectDB();
@@ -24,9 +25,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new UserDB({
       user_credentials,
-      password,
+      password: hashedPassword,
       name,
     });
 
